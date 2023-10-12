@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import AstronomyPictureOfTheDay from './components/AstronomyPictureOfTheDay';
+import CategorySelector from './components/CategorySelector';
 import SpaceCards from './components/SpaceCards';
 import { createGlobalStyle } from 'styled-components';
+import Header from './components/Header';
+import MarsInfo from './components/MarsInfo';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -11,12 +14,12 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: #121212;
-    color: #fff; /* Define a cor do texto para contrastar com o fundo */
+    color: #fff;
   }
 `;
 
 const App = () => {
-  const [selectedCategory, setSelectedCategory] = useState('gallery'); // Padrão: Galeria
+  const [selectedCategory, setSelectedCategory] = useState('gallery');
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -25,15 +28,20 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
+      <Header></Header>
       <div>
-        <h1>Daily Image</h1>
         <AstronomyPictureOfTheDay />
       </div>
       <div>
-        <button onClick={() => handleCategoryChange('gallery')}>Galeria de Imagens Espaciais</button>
-        <button onClick={() => handleCategoryChange('mars')}>Exploração de Marte</button>
-        <h1>{selectedCategory === 'gallery' ? 'Galeria de Imagens Espaciais' : 'Exploração de Marte'}</h1>
-        <SpaceCards category={selectedCategory} />
+        <CategorySelector
+          selectedCategory={selectedCategory}
+          handleCategoryChange={handleCategoryChange}
+        />
+        {selectedCategory === 'gallery' ? (
+          <SpaceCards category={selectedCategory} />
+        ) : selectedCategory === 'mars' ? (
+          <MarsInfo />
+        ) : null} {/* Adicione esta condição para renderizar o MarsInfo */}
       </div>
     </>
   );

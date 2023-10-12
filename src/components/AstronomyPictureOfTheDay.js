@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import loadingGif from '../assets/loading.gif'
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #1f1f1f;
+  //background-color: #1f1f1f;
+  background-color: #2b2d31;
   margin: 0;
   padding: 0;
 `;
@@ -27,7 +29,8 @@ const Daily = styled.h1`
   font-weight: bold;
   font-size: 36px;
   text-align: center;
-  color: #bb86fc;
+  //color: #bb86fc;
+  color: white;
   padding-top: 10px;
 `;
 
@@ -37,6 +40,11 @@ const Image = styled.img`
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
+`;
+
+const LoadingImage = styled.img`
+  width: 100px;
+  height: auto;
 `;
 
 const AstronomyPictureOfTheDay = () => {
@@ -57,9 +65,13 @@ const AstronomyPictureOfTheDay = () => {
         fetchAstronomyPicture();
     }, []);
 
-    if (!astronomyPicture) {
-        return <div>Loading...</div>;
-    }
+        if (!astronomyPicture) {
+            return (
+                <Container>
+                    <LoadingImage src={loadingGif} alt="Loading..." />
+                </Container>
+            );
+        }
 
     return (
         <Container>
