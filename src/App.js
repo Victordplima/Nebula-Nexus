@@ -5,6 +5,7 @@ import SpaceCards from './components/SpaceCards';
 import { createGlobalStyle } from 'styled-components';
 import Header from './components/Header';
 import MarsInfo from './components/MarsInfo';
+import AstronomyImageByDate from './components/AstronomyImageByDate';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -41,7 +42,9 @@ const App = () => {
           <SpaceCards category={selectedCategory} />
         ) : selectedCategory === 'mars' ? (
           <MarsInfo />
-        ) : null} {/* Adicione esta condição para renderizar o MarsInfo */}
+        ) : selectedCategory === 'date-image' ? (
+          <AstronomyImageByDate />
+        ) : null}
       </div>
     </>
   );

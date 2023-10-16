@@ -57,7 +57,13 @@ const CategorySelector = ({ selectedCategory, handleCategoryChange }) => {
       >
         Exploração de Marte
       </CategoryButton>
-    </CategorySelectorContainer>
+      <CategoryButton
+        onClick={() => handleCategoryChange('date-image')} // Defina o nome da nova categoria
+        style={{ backgroundColor: selectedCategory === 'date-image' ? '#888' : '#666' }} // Estilos conforme necessário
+      >
+        Imagem por Data
+      </CategoryButton>
+    </CategorySelectorContainer >
   );
 };
 
