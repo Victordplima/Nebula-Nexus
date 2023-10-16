@@ -27,7 +27,7 @@ Siga os passos abaixo para executar o projeto em seu ambiente local:
    Antes de começar, certifique-se de ter as dependências instaladas. No diretório raiz do projeto, execute o seguinte comando:
    ```bash
    npm install
-
+   ```
 
 2. **Inicialização da Aplicação**
 
