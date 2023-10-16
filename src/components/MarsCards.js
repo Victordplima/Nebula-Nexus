@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import loadingGif from '../assets/loading.gif';
 
 const CardContainer = styled.div`
   margin: 20px;
@@ -64,12 +65,27 @@ const LoadMoreButton = styled.button`
   }
 `;
 
+const LoadingImage = styled.img`
+  width: 100px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  max-height: 100vh;
+`;
+
 const MarsCards = ({ rover }) => {
     const [roverPhotos, setRoverPhotos] = useState([]);
     const [expandedPhoto, setExpandedPhoto] = useState(null);
     const [visiblePhotos, setVisiblePhotos] = useState(20);
     const [totalPhotos, setTotalPhotos] = useState(0);
     const [limit, setLimit] = useState(40);
+    const [loaded, setLoaded] = useState(false);
+
 
     useEffect(() => {
         const fetchRoverPhotos = async () => {
@@ -77,15 +93,16 @@ const MarsCards = ({ rover }) => {
                 const response = await axios.get(
                     `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=1000&api_key=YKLQnPmppobspjAUnmZ63vnKrvfsHgiwbtmiTNNG`
                 );
-    
+
                 const photos = response.data.photos.slice(0, limit);
                 setTotalPhotos(response.data.photos.length);
                 setRoverPhotos(photos);
+                setLoaded(true);
             } catch (error) {
                 console.error(error);
             }
         };
-    
+
         fetchRoverPhotos();
     }, [rover, limit]);
 
@@ -99,8 +116,12 @@ const MarsCards = ({ rover }) => {
         setVisiblePhotos(newVisiblePhotos <= totalPhotos ? newVisiblePhotos : totalPhotos);
     };
 
-    if (!roverPhotos.length) {
-        return <div>Loading...</div>;
+    if (!loaded) {
+        return (
+            <Container>
+                <LoadingImage src={loadingGif} alt="Loading..." />
+            </Container>
+        );
     }
 
     return (

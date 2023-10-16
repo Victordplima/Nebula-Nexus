@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/logo escrita.png'
+import logo from '../assets/logoEscrita.png'
 
 const HeaderContainer = styled.div`
   display: flex;

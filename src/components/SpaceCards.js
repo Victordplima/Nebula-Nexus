@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import loadingGif from '../assets/loading.gif'
+import imageError from '../assets/imageError.png'
 
 const CardContainer = styled.div`
   margin: 20px;
@@ -130,9 +131,8 @@ const SpaceCards = ({ category }) => {
     };
 
     if (category !== 'gallery' || !loaded) {
-        return null; // Retorna null se a categoria não for a correta ou os dados ainda não foram carregados
+        return null;
     }
-
 
     return (
         <>
@@ -145,7 +145,12 @@ const SpaceCards = ({ category }) => {
                             height: expandedCard === index ? 'auto' : '150px',
                         }}
                     >
-                        <SpaceImage src={item.url} alt={item.title} onClick={() => handleCardClick(index)} />
+                        <SpaceImage
+                            src={item.url}
+                            alt={item.title}
+                            onClick={() => handleCardClick(index)}
+                            onError={(e) => { e.target.onerror = null; e.target.src = imageError; }}
+                        />
                         <SpaceTitle>{item.title}</SpaceTitle>
                         {expandedCard === index && <SpaceDescription>{item.explanation}</SpaceDescription>}
                     </CardContainer>

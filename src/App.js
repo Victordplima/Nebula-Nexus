@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('gallery');
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
