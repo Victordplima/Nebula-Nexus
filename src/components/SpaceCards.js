@@ -129,9 +129,10 @@ const SpaceCards = ({ category }) => {
         }
     };
 
-    if (category !== 'gallery') {
-        return null; // Retorna null se a categoria não for a correta
+    if (category !== 'gallery' || !loaded) {
+        return null; // Retorna null se a categoria não for a correta ou os dados ainda não foram carregados
     }
+
 
     return (
         <>
