@@ -10,6 +10,8 @@
 
 Este projeto é uma aplicação web que permite visualizar imagens relacionadas ao espaço sideral. Ele inclui duas funcionalidades principais:
 
+- **Imagem Diária**: Exibe uma imagem com seus respetivos títulos e descrições que é atualizada todo dia. As imagens são obtidas da API da NASA.
+
 - **Galeria de Imagens Espaciais**: Exibe uma coleção de imagens do espaço sideral com seus respetivos títulos e descrições. As imagens são obtidas da API da NASA.
 
 - **Exploração de Marte**: Exibe imagens capturadas por rovers em Marte. As imagens são obtidas da API da NASA.
