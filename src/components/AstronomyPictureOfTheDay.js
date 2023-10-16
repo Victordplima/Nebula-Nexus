@@ -47,6 +47,17 @@ const LoadingImage = styled.img`
   height: auto;
 `;
 
+const Description = styled.p`
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+  text-align: center;
+`;
+
 const AstronomyPictureOfTheDay = () => {
     const [astronomyPicture, setAstronomyPicture] = useState(null);
 
@@ -65,13 +76,13 @@ const AstronomyPictureOfTheDay = () => {
         fetchAstronomyPicture();
     }, []);
 
-        if (!astronomyPicture) {
-            return (
-                <Container>
-                    <LoadingImage src={loadingGif} alt="Loading..." />
-                </Container>
-            );
-        }
+    if (!astronomyPicture) {
+        return (
+            <Container>
+                <LoadingImage src={loadingGif} alt="Loading..." />
+            </Container>
+        );
+    }
 
     return (
         <Container>
@@ -79,6 +90,7 @@ const AstronomyPictureOfTheDay = () => {
                 <Daily>Daily Image</Daily>
                 <Image src={astronomyPicture.url} alt={astronomyPicture.title} />
                 <Title>{astronomyPicture.title}</Title>
+                <Description>{astronomyPicture.explanation}</Description>
             </Content>
         </Container>
     );

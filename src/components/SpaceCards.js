@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import loadingGif from '../assets/loading.gif'
 import imageError from '../assets/imageError.png'
+import ReactCardFlip from 'react-card-flip';
 
 const CardContainer = styled.div`
   margin: 20px;
@@ -50,7 +51,7 @@ const SpaceTitle = styled.h3`
 const SpaceDescription = styled.p`
   padding-top: 10px;
   font-family: 'Roboto', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
 `;
 
 const Container = styled.div`
@@ -83,12 +84,11 @@ const LoadMoreButton = styled.button`
 
 const SpaceCards = ({ category }) => {
     const [spaceData, setSpaceData] = useState(null);
-    const [expandedCard, setExpandedCard] = useState(null);
     const [visibleCards, setVisibleCards] = useState(20);
-    const [loaded, setLoaded] = useState(false); // Adicionando o estado loaded
+    const [loaded, setLoaded] = useState(false);
+    const [flipped, setFlipped] = useState(Array(20).fill(false));
 
     useEffect(() => {
-        // Verificando se a categoria é 'gallery' antes de carregar os dados
         if (category === 'gallery' && !loaded) {
             const fetchSpaceData = async () => {
                 try {
@@ -96,7 +96,7 @@ const SpaceCards = ({ category }) => {
                         'https://api.nasa.gov/planetary/apod?api_key=YKLQnPmppobspjAUnmZ63vnKrvfsHgiwbtmiTNNG&count=21'
                     );
                     setSpaceData(response.data);
-                    setLoaded(true); // Atualizando o estado loaded
+                    setLoaded(true);
                 } catch (error) {
                     console.error(error);
                 }
@@ -106,16 +106,10 @@ const SpaceCards = ({ category }) => {
         }
     }, [category, loaded]);
 
-    if (!spaceData) {
-        return (
-            <Container>
-                <LoadingImage src={loadingGif} alt="Loading..." />
-            </Container>
-        );
-    }
-
     const handleCardClick = (index) => {
-        setExpandedCard(index === expandedCard ? null : index);
+        const newFlipped = [...flipped];
+        newFlipped[index] = !newFlipped[index];
+        setFlipped(newFlipped);
     };
 
     const handleLoadMore = async () => {
@@ -130,35 +124,42 @@ const SpaceCards = ({ category }) => {
         }
     };
 
-    if (category !== 'gallery' || !loaded) {
-        return null;
+    if (!spaceData) {
+        return (
+            <Container>
+                <LoadingImage src={loadingGif} alt="Loading..." />
+            </Container>
+        );
     }
 
     return (
         <>
             <CardWrapper>
                 {spaceData.slice(0, visibleCards).map((item, index) => (
-                    <CardContainer
+                    <ReactCardFlip
                         key={index}
-                        style={{
-                            width: expandedCard === index ? '100%' : '150px',
-                            height: expandedCard === index ? 'auto' : '150px',
-                        }}
+                        isFlipped={flipped[index]}
+                        flipDirection="horizontal"
                     >
-                        <SpaceImage
-                            src={item.url}
-                            alt={item.title}
+                        <CardContainer
                             onClick={() => handleCardClick(index)}
-                            onError={(e) => { e.target.onerror = null; e.target.src = imageError; }}
-                        />
-                        <SpaceTitle>{item.title}</SpaceTitle>
-                        {expandedCard === index && <SpaceDescription>{item.explanation}</SpaceDescription>}
-                    </CardContainer>
+                        >
+                            <SpaceImage
+                                src={item.url}
+                                alt={item.title}
+                                onError={(e) => { e.target.onerror = null; e.target.src = imageError; }}
+                            />
+                            <SpaceTitle>{item.title}</SpaceTitle>
+                        </CardContainer>
+                        <CardContainer
+                            onClick={() => handleCardClick(index)}
+                        >
+                            <SpaceDescription>{item.explanation}</SpaceDescription>
+                        </CardContainer>
+                    </ReactCardFlip>
                 ))}
             </CardWrapper>
-            {visibleCards < spaceData.length && (
-                <LoadMoreButton onClick={handleLoadMore}>Carregar Mais</LoadMoreButton>
-            )}
+            <LoadMoreButton onClick={handleLoadMore}>Carregar Mais</LoadMoreButton>
         </>
     );
 };
