@@ -28,7 +28,6 @@ const Daily = styled.h1`
   font-weight: bold;
   font-size: 36px;
   text-align: center;
-  //color: #bb86fc;
   color: white;
   padding-top: 10px;
 `;

@@ -36,9 +36,7 @@ const MarsInfo = () => {
                     selectedRover={selectedRover}
                     handleRoverChange={handleRoverChange}
                 />
-
             </MarsInfoContainer>
-
             <MarsCards rover={selectedRover} limit={20} />
         </>
     );
