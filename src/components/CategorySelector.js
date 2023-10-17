@@ -47,19 +47,19 @@ const CategorySelector = ({ selectedCategory, handleCategoryChange }) => {
     <CategorySelectorContainer>
       <CategoryButton
         onClick={() => handleCategoryChange('gallery')}
-        style={{ backgroundColor: selectedCategory === 'gallery' ? '#888' : '#666' }}
+        style={{ backgroundColor: selectedCategory === 'gallery' ? '#BB86FC' : '#666' }}
       >
         Galeria de Imagens Espaciais
       </CategoryButton>
       <CategoryButton
         onClick={() => handleCategoryChange('mars')}
-        style={{ backgroundColor: selectedCategory === 'mars' ? '#888' : '#666' }}
+        style={{ backgroundColor: selectedCategory === 'mars' ? '#BB86FC' : '#666' }}
       >
         Exploração de Marte
       </CategoryButton>
       <CategoryButton
         onClick={() => handleCategoryChange('date-image')}
-        style={{ backgroundColor: selectedCategory === 'date-image' ? '#888' : '#666' }}
+        style={{ backgroundColor: selectedCategory === 'date-image' ? '#BB86FC' : '#666' }}
       >
         Imagem por Data
       </CategoryButton>
