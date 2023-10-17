@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import AstronomyPictureOfTheDay from './components/AstronomyPictureOfTheDay';
+import AstronomyPictureOfTheDay from './components/ImageByDate/AstronomyPictureOfTheDay';
 import CategorySelector from './components/CategorySelector';
-import SpaceCards from './components/SpaceCards';
+import SpaceCards from './components/Gallery/SpaceCards';
 import { createGlobalStyle } from 'styled-components';
 import Header from './components/Header';
-import MarsInfo from './components/MarsInfo';
-import AstronomyImageByDate from './components/AstronomyImageByDate';
+import MarsInfo from './components/Mars/MarsInfo';
+import AstronomyImageByDate from './components/ImageByDate/AstronomyImageByDate';
 
 const GlobalStyle = createGlobalStyle`
   * {

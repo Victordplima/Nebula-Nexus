@@ -3,6 +3,14 @@ import styled from 'styled-components';
 import RoverSelector from './RoverSelector';
 import MarsCards from './MarsCards';
 
+const RoverTitle = styled.h2`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  padding-bottom: 16px;
+`
 const MarsInfoContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -23,7 +31,7 @@ const MarsInfo = () => {
     return (
         <>
             <MarsInfoContainer>
-                <h2>Exploração de Marte</h2>
+                <RoverTitle>Selecione um rover</RoverTitle>
                 <RoverSelector
                     selectedRover={selectedRover}
                     handleRoverChange={handleRoverChange}

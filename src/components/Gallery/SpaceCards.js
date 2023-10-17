@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import loadingGif from '../assets/loading.gif'
-import imageError from '../assets/imageError.png'
+import loadingGif from '../../assets/loading.gif'
+import imageError from '../../assets/imageError.png'
 import ReactCardFlip from 'react-card-flip';
 
 const CardContainer = styled.div`
   margin: 20px;
   padding: 10px;
-  //border: 1px solid #ccc;
   border-radius: 8px;
   text-align: center;
-  display: inline-block; /* Adicione esta linha para ocupar apenas parte da linha */
-  min-width: 350px; /* Defina o tamanho mínimo dos cards */
-  min-height: 400px; /* Defina o tamanho mínimo dos cards */
-  max-width: 350px; /* Defina o tamanho máximo dos cards */
-  max-height: 400px; /* Defina o tamanho máximo dos cards */
+  display: inline-block;
+  min-width: 350px;
+  min-height: 400px;
+  max-width: 350px; 
+  max-height: 400px;
   overflow: hidden;
-  transition: width 0.3s, height 0.3s; /* Adicione uma transição para animar a mudança de tamanho */
-  overflow-y: auto; /* Adicione scroll vertical */
-  //background-color: #1d1d1d;
+  transition: width 0.3s, height 0.3s;
+  overflow-y: auto;
   background-color: #313338;
 `;
 
@@ -63,7 +61,7 @@ const Container = styled.div`
 `;
 
 const LoadingImage = styled.img`
-  width: 100px; /* Ajuste o tamanho conforme necessário */
+  width: 100px;
   height: auto;
 `;
 

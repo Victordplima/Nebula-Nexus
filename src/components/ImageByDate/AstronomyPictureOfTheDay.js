@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import loadingGif from '../assets/loading.gif'
+import loadingGif from '../../assets/loading.gif'
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  //background-color: #1f1f1f;
   background-color: #2b2d31;
   margin: 0;
   padding: 0;

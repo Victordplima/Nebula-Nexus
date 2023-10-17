@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const RoverSelectorContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 const RoverButton = styled.button`
@@ -25,7 +25,7 @@ const RoverButton = styled.button`
   }
 
   &.selected {
-    background-color: #ffffff;
+    background-color: #BB86FC;
   }
 `;
 

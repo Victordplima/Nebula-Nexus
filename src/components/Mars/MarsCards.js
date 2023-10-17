@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import loadingGif from '../assets/loading.gif';
+import loadingGif from '../../assets/loading.gif';
 
 const CardContainer = styled.div`
   margin: 20px;
@@ -66,7 +66,7 @@ const LoadMoreButton = styled.button`
 `;
 
 const LoadingImage = styled.img`
-  width: 100px; /* Ajuste o tamanho conforme necessário */
+  width: 100px;
   height: auto;
 `;
 
