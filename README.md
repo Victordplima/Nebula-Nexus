@@ -21,6 +21,7 @@ Este projeto é uma aplicação web que permite visualizar imagens relacionadas 
 ---
 
 ## 🚀 Como Executar o Projeto
+A aplicação está disponível online através do serviço Surge. Você pode acessá-la [aqui](https://silent-birthday.surge.sh/)
 
 Siga os passos abaixo para executar o projeto em seu ambiente local:
 
