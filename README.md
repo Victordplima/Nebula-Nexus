@@ -16,7 +16,7 @@ Este projeto é uma aplicação web que permite visualizar imagens relacionadas 
 </p>
 <br><br>
 
-- **Galeria de Imagens Espaciais**: Exibe uma coleção de imagens do espaço sideral com seus respetivos títulos e descrições. As imagens são obtidas da API da NASA.
+- **Galeria de Imagens Espaciais**: Exibe uma coleção de imagens do espaço sideral com seus respectivos títulos e descrições. As imagens são obtidas da API da NASA.
 <p align="center">
   <img src="src/assets/Gallery.png" alt="Galeria de imagens espaciais">
 </p>
