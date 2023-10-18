@@ -81,5 +81,7 @@ Isso irá iniciar a aplicação no modo de desenvolvimento. Abra [http://localho
 
 
 Autores:
+
 Victor Dala - https://github.com/Victordplima
+
 Sávio Carlos - https://github.com/SavioCarlos
