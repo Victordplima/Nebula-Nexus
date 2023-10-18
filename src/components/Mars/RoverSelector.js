@@ -11,7 +11,7 @@ const RoverButton = styled.button`
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   padding: 10px 20px;
-  background-color: #b5bac1;
+  background-color: #555555;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -21,11 +21,11 @@ const RoverButton = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #555;
+    background-color: #363636;
   }
 
   &.selected {
-    background-color: #BB86FC;
+    background-color: #bb86fc;
   }
 `;
 

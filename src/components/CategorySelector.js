@@ -21,20 +21,21 @@ const CategoryButton = styled.button`
   font-weight: bold;
   width: 100%;
   padding: 10px 20px;
-  background-color: #b5bac1;
+  background-color: #555555;
   color: #fff;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
   margin: 5px;
+  transition: background-color 0.3s;
 
   &:hover {
-    background-color: #555;
+    background-color: #363636;
   }
 
   &.selected {
-    background-color: #ffffff;
+    background-color: #bb86fc;
   }
 
   @media (max-width: 768px) {
@@ -47,24 +48,25 @@ const CategorySelector = ({ selectedCategory, handleCategoryChange }) => {
     <CategorySelectorContainer>
       <CategoryButton
         onClick={() => handleCategoryChange('gallery')}
-        style={{ backgroundColor: selectedCategory === 'gallery' ? '#BB86FC' : '#666' }}
+        className={selectedCategory === 'gallery' ? 'selected' : ''}
       >
         Galeria de Imagens Espaciais
       </CategoryButton>
       <CategoryButton
         onClick={() => handleCategoryChange('mars')}
-        style={{ backgroundColor: selectedCategory === 'mars' ? '#BB86FC' : '#666' }}
+        className={selectedCategory === 'mars' ? 'selected' : ''}
       >
         Exploração de Marte
       </CategoryButton>
       <CategoryButton
         onClick={() => handleCategoryChange('date-image')}
-        style={{ backgroundColor: selectedCategory === 'date-image' ? '#BB86FC' : '#666' }}
+        className={selectedCategory === 'date-image' ? 'selected' : ''}
       >
         Imagem por Data
       </CategoryButton>
     </CategorySelectorContainer >
   );
 };
+
 
 export default CategorySelector;
