@@ -80,8 +80,8 @@ Isso irá iniciar a aplicação no modo de desenvolvimento. Abra [http://localho
 - API da NASA
 
 
-Autores:
+---
 
-Victor Dala - https://github.com/Victordplima
-
-Sávio Carlos - https://github.com/SavioCarlos
+## 👨‍💻 Autores
+- [Victor Dala](https://github.com/Victordplima)
+- [Sávio Carlos](https://github.com/SavioCarlos)
