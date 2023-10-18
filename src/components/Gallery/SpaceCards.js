@@ -84,6 +84,7 @@ const SpaceCards = ({ category }) => {
     const [spaceData, setSpaceData] = useState(null);
     const [visibleCards, setVisibleCards] = useState(20);
     const [loaded, setLoaded] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [flipped, setFlipped] = useState(Array(20).fill(false));
 
     useEffect(() => {
@@ -112,15 +113,21 @@ const SpaceCards = ({ category }) => {
 
     const handleLoadMore = async () => {
         try {
+            setLoading(true); // Ativando o indicador de carregamento
+
             const response = await axios.get(
                 'https://api.nasa.gov/planetary/apod?api_key=YKLQnPmppobspjAUnmZ63vnKrvfsHgiwbtmiTNNG&count=12'
             );
+
             setSpaceData((prevSpaceData) => [...prevSpaceData, ...response.data]);
             setVisibleCards((prevVisibleCards) => prevVisibleCards + 12);
         } catch (error) {
             console.error(error);
+        } finally {
+            setLoading(false); // Desativando o indicador de carregamento, independentemente do resultado da requisição
         }
     };
+
 
     if (!spaceData) {
         return (
@@ -157,7 +164,13 @@ const SpaceCards = ({ category }) => {
                     </ReactCardFlip>
                 ))}
             </CardWrapper>
-            <LoadMoreButton onClick={handleLoadMore}>Carregar Mais</LoadMoreButton>
+            {loading ? (
+                <Container>
+                    <LoadingImage src={loadingGif} alt="Loading..." />
+                </Container>
+            ) : (
+                <LoadMoreButton onClick={handleLoadMore}>Carregar Mais</LoadMoreButton>
+            )}
         </>
     );
 };
