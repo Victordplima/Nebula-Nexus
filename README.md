@@ -45,13 +45,18 @@ Siga os passos abaixo para executar o projeto em seu ambiente local:
    ```bash
    git clone https://github.com/Victordplima/Nebula-Nexus.git
    ```
+   
+2. **Navegue até os arquivos**
+   ```bash
+   cd Nebula-Nexus
+   ```
 
-2. **Instalação de Dependências**
+3. **Instalação de Dependências**
    ```bash
    npm install
    ```
 
-3. **Inicialização da Aplicação**
+4. **Inicialização da Aplicação**
    ```bash
    npm start
    ```
