@@ -40,33 +40,21 @@ A aplicação está disponível online através do serviço **Surge**. Você pod
 <br><br>
 
 Siga os passos abaixo para executar o projeto em seu ambiente local:
-
-1. **Crie um projeto React em sua máquina**
-   ```bash
-   npx create-react-app nebulanexus
-   ```
    
-2. **Navegue até o diretório do projeto**
-   ```bash
-   cd nebulanexus
-   ```
-   
-3. **Clone o repositório**
+1. **Clone o repositório**
    ```bash
    git clone https://github.com/Victordplima/Nebula-Nexus.git
    ```
 
-4. **Instalação de Dependências**
+2. **Instalação de Dependências**
    ```bash
    npm install
    ```
 
-5. **Inicialização da Aplicação**
+3. **Inicialização da Aplicação**
    ```bash
    npm start
    ```
-
-
 
 Isso irá iniciar a aplicação no modo de desenvolvimento. Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar o projeto.
 
