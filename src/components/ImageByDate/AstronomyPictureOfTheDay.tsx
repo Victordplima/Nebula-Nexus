@@ -8,8 +8,8 @@ import type { ApodImage } from '../../types/nasa';
 const Container = styled.section`
   display: flex;
   justify-content: center;
-  background-color: #2b2d31;
-  margin: 0;
+  background-color: transparent;
+  margin: 20px 0;
   padding: 0;
 `;
 
@@ -22,33 +22,44 @@ const Title = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   text-align: center;
-  color: white;
-  padding-bottom: 10px;
+  color: #e0e0e0;
+  padding-bottom: 16px;
+  font-size: 24px;
 `;
 
 const Daily = styled.h1`
   font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 42px);
   text-align: center;
-  color: white;
-  padding-top: 10px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #fff 0%, #bb86fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 const Image = styled.img`
-  width: min(100%, 500px);
+  width: min(100%, 600px);
   display: block;
-  margin: 0 auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin: 30px auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 const VideoFrame = styled.iframe`
   width: min(100%, 720px);
   aspect-ratio: 16 / 9;
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
   border: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 `;
 
 const LoadingImage = styled.img`
@@ -57,12 +68,14 @@ const LoadingImage = styled.img`
 `;
 
 const Description = styled.p`
-  padding: 0 64px 15px;
+  padding: 0 20px 30px;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  line-height: 1.6;
-  color: white;
+  line-height: 1.8;
+  color: #cccccc;
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     padding-left: 16px;

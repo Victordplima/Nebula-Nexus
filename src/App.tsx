@@ -16,9 +16,30 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #121212;
+    background: radial-gradient(circle at top, #1a1a2e 0%, #121212 100%);
+    background-attachment: fixed;
     color: #fff;
     font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #121212;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #bb86fc;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9965f4;
   }
 
   button,

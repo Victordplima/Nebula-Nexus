@@ -8,43 +8,50 @@ interface CategorySelectorProps {
 
 const CategorySelectorContainer = styled.nav`
   display: flex;
-  justify-content: space-around;
-  margin: 0 auto 20px;
-  padding: 10px;
-  background-color: #1e1f22;
-  border-radius: 8px;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px auto;
+  padding: 12px;
+  background-color: rgba(30, 31, 34, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-width: fit-content;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    border-radius: 16px;
   }
 `;
 
 const CategoryButton = styled.button`
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  width: 100%;
-  padding: 10px 20px;
-  background-color: #555555;
-  color: #fff;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: #a0a0a0;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
-  margin: 5px;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 
   &:hover {
-    background-color: #363636;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   &.selected {
     background-color: #bb86fc;
     color: #121212;
+    box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4);
   }
 
   @media (max-width: 768px) {
-    margin: 5px 0;
+    width: 100%;
+    margin: 4px 0;
   }
 `;
 

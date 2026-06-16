@@ -6,17 +6,22 @@ import { fetchApodByDate } from '../../services/nasaApi';
 import type { ApodImage } from '../../types/nasa';
 
 const Container = styled.section`
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 16px 24px;
+  max-width: 800px;
+  margin: 20px auto 40px;
+  padding: 30px;
   text-align: center;
+  background-color: #1e1f22;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 `;
 
 const Title = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #e0e0e0;
 `;
 
 const DateLabel = styled.label`
@@ -30,37 +35,59 @@ const DateLabel = styled.label`
 const DateInput = styled.input`
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  padding: 8px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #2b2d31;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: #bb86fc;
+  }
 `;
 
 const ShowImageButton = styled.button`
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  padding: 10px 20px;
-  background-color: #bb86fc;
-  color: #121212;
+  font-weight: bold;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #bb86fc 0%, #7c4dff 100%);
+  color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 30px;
   cursor: pointer;
   margin-bottom: 20px;
+  transition: box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3);
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(187, 134, 252, 0.5);
+  }
 
   &:disabled {
     cursor: not-allowed;
     opacity: 0.65;
+    box-shadow: none;
   }
 `;
 
 const Image = styled.img`
   max-width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 `;
 
 const VideoFrame = styled.iframe`
   width: 100%;
   aspect-ratio: 16 / 9;
-  margin-bottom: 10px;
+  margin: 20px 0;
   border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 `;
 
 const ImageName = styled.p`

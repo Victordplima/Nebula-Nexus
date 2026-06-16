@@ -15,11 +15,13 @@ const RoverTitle = styled.h2`
 
 const MarsInfoContainer = styled.section`
   max-width: 800px;
-  margin: 0 auto 20px;
-  padding: 20px;
-  background-color: #333;
-  border-radius: 8px;
+  margin: 20px auto 40px;
+  padding: 24px;
+  background-color: #1e1f22;
+  border-radius: 16px;
   color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 `;
 
 const MarsInfo = () => {
