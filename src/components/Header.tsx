@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/logoEscrita.png'
+import logo from '../assets/logoEscrita.png';
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,12 +13,10 @@ const Logo = styled.img`
   max-height: 50px;
 `;
 
-const Header = () => {
-  return (
-    <HeaderContainer>
-      <Logo src={logo} alt="Logo" />
-    </HeaderContainer>
-  );
-};
+const Header = () => (
+  <HeaderContainer>
+    <Logo src={logo} alt="Nebula Nexus" />
+  </HeaderContainer>
+);
 
 export default Header;
